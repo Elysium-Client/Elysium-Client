@@ -12,11 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Gui.class)
 public class GuiMixin {
 
-    @Inject(
-            method = "render",
-            at = @At("TAIL")
-    )
-
+    @Inject(method = "render", at = @At("TAIL"))
     private void onRender(GuiGraphics guiGraphics, DeltaTracker deltaTracker, CallbackInfo ci) {
         FpsOverlayHud.render(guiGraphics);
     }

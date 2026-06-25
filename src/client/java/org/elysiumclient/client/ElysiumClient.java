@@ -1,10 +1,17 @@
 package org.elysiumclient.client;
 
 import net.fabricmc.api.ClientModInitializer;
+import org.elysiumclient.client.modules.ModuleManager;
 
 public class ElysiumClient implements ClientModInitializer {
+	private static ModuleManager moduleManager;
+
 	@Override
 	public void onInitializeClient() {
-		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
+		moduleManager = new ModuleManager();
+	}
+
+	public static ModuleManager getModuleManager() {
+		return moduleManager;
 	}
 }
